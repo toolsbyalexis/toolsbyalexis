@@ -329,7 +329,7 @@
                 <div class="spinner"></div>
             </div>
             
-            <div class="error" id="errorMsg">Invalid password. Access denied.</div>
+            <div class="error" id="errorMsg">Invalid password.</div>
         </div>
         
         <div class="success-container" id="successContainer">
@@ -395,7 +395,7 @@
             return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
         }
       
-        const expectedHash = '8b5c6c8b2c5e3f4a7d9e6f8a5b7c3d2e1f4a6b8c9d5e2f7a4b6c8d1e3f5a7b9c2d4e6f8a1b3c5d7e9f2a4b6c8d0e2f4a6b8c1d3e5f7a9b2c4d6e8f0a1b3c';
+        const expectedHash = '679db9a251c4df428954de387f2fc3c1d0746c890a41fddd6ab3c436540775bc';
 
         async function validatePassword() {
             const passwordInput = document.getElementById('passwordInput');
