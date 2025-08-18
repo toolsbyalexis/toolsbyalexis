@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Access Portal</title>
+    <title>Alexis's Tools</title>
     <style>
         * {
             margin: 0;
@@ -413,7 +413,6 @@
             setTimeout(async () => {
                 try {
                     const inputHash = await hashPassword(password);
-                    console.log(inputHash)
                     // Check if password is correct
                     if (inputHash === expectedHash) {
                         // Success animation
