@@ -73,8 +73,6 @@
             50% { transform: translateY(-20px); }
         }
 
-
-
         .login-container {
             position: relative;
             z-index: 10;
@@ -89,22 +87,30 @@
         .logo {
             width: 80px;
             height: 80px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            border-radius: 50%;
             margin: 0 auto 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            color: white;
-            font-weight: bold;
             animation: pulse 2s ease-in-out infinite;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(255, 107, 107, 0.3));
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3); }
-            50% { transform: scale(1.1); box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5); }
+            0%, 100% { 
+                transform: scale(1); 
+                filter: drop-shadow(0 10px 30px rgba(255, 107, 107, 0.3));
+            }
+            50% { 
+                transform: scale(1.1); 
+                filter: drop-shadow(0 15px 40px rgba(255, 107, 107, 0.5));
+            }
         }
 
         h1 {
@@ -180,29 +186,6 @@
             position: relative;
             overflow: hidden;
             animation: slideIn 1s ease-out 0.6s both;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.6s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-        }
-
-        .submit-btn:hover::before {
-            width: 300px;
-            height: 300px;
         }
 
         .submit-btn:active {
@@ -328,7 +311,9 @@
     
     <div class="container">
         <div class="login-container" id="loginContainer">
-            <div class="logo">🔐</div>
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/toolsbyalexis/toolsbyalexis/refs/heads/main/logo.png" alt="Tools Logo">
+            </div>
             <h1>Secure Access Portal</h1>
             <p class="subtitle">Enter your credentials to continue</p>
             
@@ -430,7 +415,7 @@
                     const inputHash = await hashPassword(password);
                     
                     // Check if password is correct
-                    if (password === 'aelegendzdabest') {
+                    if (inputHash === expectedHash) {
                         // Success animation
                         document.getElementById('loginContainer').style.animation = 'slideUp 1s ease-in-out forwards';
                         
