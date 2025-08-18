@@ -394,7 +394,7 @@
             const hash = await crypto.subtle.digest('SHA-256', data);
             return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
         }
-      
+        
         const expectedHash = '679db9a251c4df428954de387f2fc3c1d0746c890a41fddd6ab3c436540775bc';
 
         async function validatePassword() {
@@ -413,7 +413,7 @@
             setTimeout(async () => {
                 try {
                     const inputHash = await hashPassword(password);
-                    
+                    console.log(inputHash)
                     // Check if password is correct
                     if (inputHash === expectedHash) {
                         // Success animation
