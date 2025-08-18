@@ -355,7 +355,7 @@
     <div class="copyright">© Alexis. 2025</div>
 
     <script>
-        // Generate animated stars
+        
         function createStars() {
             const starsContainer = document.getElementById('stars');
             for (let i = 0; i < 100; i++) {
@@ -368,7 +368,7 @@
             }
         }
 
-        // Generate floating particles
+        
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             
@@ -379,13 +379,13 @@
                 particle.style.animationDelay = Math.random() * 2 + 's';
                 particle.style.animationDuration = (6 + Math.random() * 4) + 's';
                 
-                // Add some horizontal drift
+                
                 const drift = (Math.random() - 0.5) * 100;
                 particle.style.setProperty('--drift', drift + 'px');
                 
                 particlesContainer.appendChild(particle);
                 
-                // Remove particle after animation completes
+               
                 setTimeout(() => {
                     if (particle.parentNode) {
                         particle.parentNode.removeChild(particle);
@@ -393,16 +393,16 @@
                 }, parseFloat(particle.style.animationDuration) * 1000);
             }
             
-            // Create initial particles
+           
             for (let i = 0; i < 15; i++) {
                 setTimeout(addParticle, i * 500);
             }
             
-            // Continuously add new particles
+            
             setInterval(addParticle, 800);
         }
 
-        // Crypto function for password hashing
+        
         async function hashPassword(password) {
             const encoder = new TextEncoder();
             const data = encoder.encode(password);
@@ -420,11 +420,11 @@
             
             const password = passwordInput.value;
             
-            // Show loading animation
+            
             loading.style.display = 'block';
             submitBtn.style.opacity = '0.6';
             
-            // Simulate processing delay for dramatic effect
+            
             setTimeout(async () => {
                 try {
                     const inputHash = await hashPassword(password);
@@ -465,23 +465,23 @@
             }, 1500);
         }
 
-        // Allow Enter key submission
+       
         document.getElementById('passwordInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 validatePassword();
             }
         });
 
-        // Initialize animations
+       
         document.addEventListener('DOMContentLoaded', function() {
             createStars();
             createParticles();
             
-            // Focus on password input
+            
             document.getElementById('passwordInput').focus();
         });
 
-        // Add more visual effects on input focus
+        
         document.getElementById('passwordInput').addEventListener('focus', function() {
             this.parentElement.style.transform = 'scale(1.02)';
         });
